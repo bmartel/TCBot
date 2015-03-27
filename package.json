@@ -19,9 +19,11 @@
     "hubot-shipit": "^0.1.2",
     "hubot-skype": "git://github.com/netpro2k/hubot-skype.git",
     "hubot-slack": "^3.3.0",
-    "hubot-youtube": "^0.1.2"
+    "hubot-youtube": "^0.1.2",
+    "ntwitter": "^0.5.0",
+    "mopidy": "^0.5.0"
   },
-  "engines": {
+  "engines": {  
     "node": "0.10.x"
   }
 }

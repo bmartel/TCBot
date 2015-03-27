@@ -212,3 +212,16 @@ Add the subdomain hubot should connect to. If you web URL looks like
 
 You may want to get comfortable with `heroku logs` and `heroku restart` if
 you're having issues.
+
+## TCBot Setup
+`npm install`
+`brew tap mopidy/mopidy`
+`brew install mopidy`
+`brew install mpc`
+`brew install mpd`
+`pip install Mopidy-InternetArchive`
+`pip install Mopidy-Youtube`
+`pip install Mopidy-SomaFM`
+`brew instal mopidy-soundcloud`
+`sudo apt-get install mopidy-soundcloud`
+
