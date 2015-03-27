@@ -1,4 +1,6 @@
 [
 	"sheits.coffee",
-	"meme_captain.coffee"
+	"meme_captain.coffee",
+            "reload.coffee",
+            "remind.coffee"
 ]
