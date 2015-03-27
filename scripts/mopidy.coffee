@@ -118,3 +118,21 @@ module.exports = (robot) ->
       message.send('Shuffling has been stopped')
     else
       message.send('Mopidy is offline')
+
+  robot.respond /search music (.*)/i, (message) ->
+    searchTerm = message.match[1]
+    if online
+      trackNum = 0
+      mopidy.library.search(any: searchTerm).then (results) ->
+        trackList = ''
+        for result in results
+          if result.tracks
+            for track in result.tracks
+              if track.name
+                trackNum++
+                trackList += trackNum + ': ' + track.name + "\n"
+        if trackNum == 0
+          trackList = "Could not find any results for " + searchTerm      
+        message.send(trackList)
+    else
+      message.send('Mopidy is offline')
