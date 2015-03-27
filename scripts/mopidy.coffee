@@ -23,7 +23,7 @@
 Mopidy = require("mopidy")
 
 mopidy = new Mopidy(
-  webSocketUrl: 'ws://192.168.141.101:6680/mopidy/ws/',
+  webSocketUrl: 'ws://192.168.141.88:6680/mopidy/ws/',
   callingConvention: 'by-position-or-by-name'
 )
 
@@ -123,16 +123,26 @@ module.exports = (robot) ->
     searchTerm = message.match[1]
     if online
       trackNum = 0
+      tracks = []
       mopidy.library.search(any: searchTerm).then (results) ->
         trackList = ''
         for result in results
           if result.tracks
             for track in result.tracks
               if track.name
+                tracks.push track
                 trackNum++
                 trackList += trackNum + ': ' + track.name + "\n"
         if trackNum == 0
-          trackList = "Could not find any results for " + searchTerm      
+          trackList = "Could not find any results for " + searchTerm
+        else
+          robot.brain.set message.message.user.name + "_musicsearch", tracks
         message.send(trackList)
     else
       message.send('Mopidy is offline')
+
+  robot.respond /queue ([0-9]+)/i, (message) ->
+    trackNumber = parseInt(message.match[1]) - 1
+    tracks = robot.brain.get message.message.user.name + "_musicsearch"
+    if mopidy.tracklist.add(tracks: [tracks[trackNumber]])
+      message.send('Queued up: ' + tracks[trackNumber].name)
