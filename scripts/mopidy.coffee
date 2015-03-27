@@ -10,8 +10,18 @@
 #
 #
 # Commands:
-#
-#
+#   set volume <digit> - Sets the volume to <digit>
+#   volume? - Outputs what the volume currently is
+#   what's playing - Outputs the currently playing track
+#   next track - Skips to the next track
+#   mute - Mutes the volume
+#   unmute - Unmutes the volume
+#   pause music - Pauses the music
+#   resume music - Resumes the music
+#   shuffle music - Turns shuffle on the playlist
+#   stop shuffle - Shuts shuffle off
+#   search music <searchTerm> - Searches all the mopidy backends for <searchTerm>
+#   queue <digit> - Queues the track of YOUR last search
 #
 # Notes:
 #   None
