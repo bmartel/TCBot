@@ -24,7 +24,7 @@ module.exports = (robot) ->
 			date = new Date()
 			if date.getHours() == 14 && date.getMinutes() == 30
 				robot.messageRoom(room, "It's Parlour time.")
-			else if date.getHours == 10 && date.getMinutes == 30
+			else if date.getHours() == 10 && date.getMinutes() == 30
 				robot.messageRoom(room, "It's Tim Hortons time.")
 
 	findRoom = (msg) ->
