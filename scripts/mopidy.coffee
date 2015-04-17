@@ -153,7 +153,7 @@ module.exports = (robot) ->
   robot.respond /queue ([0-9]+)/i, (message) ->
     trackNumber = parseInt(message.match[1]) - 1
     tracks = robot.brain.get message.message.user.name + "_musicsearch"
-    if mopidy.tracklist.add(tracks: [tracks[trackNumber]]).then (tlTracks) ->
+    mopidy.tracklist.add(tracks: [tracks[trackNumber]]).then (tlTracks) ->
       playTrackIfNotPlaying = (track) ->
         if !track
           mopidy.playback.play(tlTracks[0])
