@@ -2,5 +2,7 @@
 	"sheits.coffee",
 	"meme_captain.coffee",
             "reload.coffee",
-            "remind.coffee"
+            "remind.coffee",
+            "celery-man.coffee",
+            "homer.coffee"
 ]
