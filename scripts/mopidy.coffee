@@ -154,10 +154,11 @@ module.exports = (robot) ->
     trackNumber = parseInt(message.match[1]) - 1
     tracks = robot.brain.get message.message.user.name + "_musicsearch"
     mopidy.tracklist.add(tracks: [tracks[trackNumber]]).then (tlTracks) ->
-      playTrackIfNotPlaying = (track) ->
-        if !track
-          mopidy.playback.play(tlTracks[0])
-      mopidy.playback.getCurrentTrack().then playTrackIfNotPlaying, console.error.bind(console)
+      playNextTrack = (track) ->
+        if track
+        else
+          mopidy.playback.play()
+      mopidy.playback.getCurrentTrack().then playNextTrack
       message.send('Queued up: ' + tracks[trackNumber].name)
       
       
